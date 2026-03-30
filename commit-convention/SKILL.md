@@ -1,6 +1,6 @@
 ---
 name: commit-convention
-description: Generate and review hybrid Conventional Commit messages for this repository. Use when Claude needs to suggest a commit message from code or docs changes, choose a commit type, rewrite a vague commit title, or check whether a message follows this project's rules: English type prefix, Korean subject and body, optional body, and English BREAKING CHANGE footer. Trigger whenever the user asks for commit messages, wants to follow a commit convention, mentions "커밋 메시지", "커밋 컨벤션", asks to summarize changes into a commit, or says things like "커밋 뭐라고 쓰지" or "commit this change".
+description: Generate and review hybrid Conventional Commit messages for this repository. Use when the assistant needs to suggest a commit message from code or docs changes, choose a commit type, rewrite a vague commit title, or check whether a message follows this project's rules: English type prefix, Korean subject and body, optional body, and English BREAKING CHANGE footer. Trigger whenever the user asks for commit messages, wants to follow a commit convention, mentions "커밋 메시지", "커밋 컨벤션", asks to summarize changes into a commit, or says things like "커밋 뭐라고 쓰지" or "commit this change".
 ---
 
 # Commit Convention

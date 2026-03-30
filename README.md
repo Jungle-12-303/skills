@@ -1,6 +1,6 @@
-# claude-skill
+# skills
 
-Claude Code / Cowork에서 사용하는 커스텀 스킬 모음입니다.
+Claude Code와 Codex에서 공통으로 사용할 수 있는 커스텀 스킬 모음입니다.
 
 ## 스킬 목록
 
@@ -24,16 +24,34 @@ Claude Code / Cowork에서 사용하는 커스텀 스킬 모음입니다.
 
 ---
 
+### github
+
+GitHub 저장소 작업을 터미널에서 일관된 형식으로 처리하는 자동화 스킬.
+
+**위치:** `github/SKILL.md`
+
+**주요 기능:**
+- `gh` CLI 기반으로 PR, 이슈, Actions, 릴리즈, 알림, README 업데이트 처리
+- `conventions/` 규칙을 읽어 한국어 중심 출력 형식과 템플릿 적용
+- 기본 저장소를 설정 파일 또는 현재 git remote에서 자동 감지
+
+**설정 파일:**
+```bash
+~/.config/skills/github.env
+```
+
+---
+
 ### skill-syncer
 
-이 저장소의 스킬을 현재 활성 Cowork 세션에 자동으로 동기화한다.
+이 저장소의 스킬을 Claude와 Codex 환경에 자동으로 동기화한다.
 
 **위치:** `skill-syncer/SKILL.md`
 
 **주요 기능:**
-- `scripts/sync_skills.py`로 소스 스킬을 Cowork 세션 스킬 디렉토리에 복사
-- 세션 ID가 바뀌어도 자동으로 대상 경로를 탐색
-- 추가 / 업데이트 / 변경 없음 상태를 구분해서 보고
+- `scripts/sync_skills.py`로 소스 스킬을 Claude/Codex 스킬 디렉토리에 복사
+- `--target claude|codex|all`로 대상을 선택하거나 동시에 반영
+- 파일 내용 기준으로 변경 여부를 비교해 추가 / 업데이트 / 변경 없음 상태를 보고
 
 **트리거 예시:** "스킬 동기화해줘", "스킬 업데이트해줘", "내 스킬 반영해줘"
 
@@ -41,13 +59,53 @@ Claude Code / Cowork에서 사용하는 커스텀 스킬 모음입니다.
 
 ### 자동 동기화 (권장)
 
-`skill-syncer` 스킬이 Cowork에 등록된 경우, 이 저장소에서 스킬을 추가하거나 수정한 뒤
-Claude에게 "스킬 동기화해줘"라고 하면 자동으로 반영됩니다.
+`skill-syncer` 스킬이 등록된 환경에서는 이 저장소에서 스킬을 추가하거나 수정한 뒤
+"스킬 동기화해줘"라고 요청하면 대상 도구에 반영할 수 있다.
 
 ### 수동 실행
 
+저장소를 클론한 경로에서 스크립트를 직접 실행한다.
+
 ```bash
-python3 /Users/woonyong/workspace/claude-skill/skill-syncer/scripts/sync_skills.py
+python3 /path/to/skills/skill-syncer/scripts/sync_skills.py --target all
 ```
 
-> 새로 **추가**된 스킬은 다음 대화 세션부터, **업데이트**된 스킬은 현재 세션에서도 즉시 반영됩니다.
+Claude에만 반영하려면 다음처럼 실행한다.
+
+```bash
+python3 /path/to/skills/skill-syncer/scripts/sync_skills.py --target claude
+```
+
+Codex에만 반영하려면 다음처럼 실행한다.
+
+```bash
+python3 /path/to/skills/skill-syncer/scripts/sync_skills.py --target codex
+```
+
+소스 디렉토리를 명시적으로 지정하려면 환경변수를 사용한다.
+
+```bash
+SKILL_SOURCE_DIR=/path/to/skills python3 /path/to/skills/skill-syncer/scripts/sync_skills.py --target all
+```
+
+## 설정
+
+### GitHub 기본 저장소
+
+`github` 스킬은 아래 설정 파일을 우선적으로 읽는다.
+
+```bash
+mkdir -p ~/.config/skills
+cat <<'EOF' > ~/.config/skills/github.env
+GITHUB_DEFAULT_OWNER=woonyong-kr
+GITHUB_DEFAULT_REPO=my-repo
+EOF
+```
+
+환경변수가 없으면 현재 git 저장소의 `origin` remote에서 저장소를 자동 감지한다.
+
+## 주의사항
+
+- 새로 추가된 스킬은 도구에 따라 다음 세션부터 인식될 수 있다.
+- 기존 스킬 업데이트는 현재 세션에서 바로 반영될 수 있다.
+- 이 저장소는 스킬 소스 저장소이고, 실제 사용 디렉토리와는 별개다.
