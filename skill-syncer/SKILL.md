@@ -5,29 +5,30 @@ description: Sync custom skills from the user's local skill workspace (/Users/wo
 
 # Skill Syncer
 
-사용자가 `/Users/woonyong/workspace/skills`에 만들거나 수정한 스킬을 Claude 또는 Codex의 스킬 디렉토리에 반영한다.
+사용자가 `/Users/woonyong/workspace/skills`에 만들거나 수정한 스킬을 Claude 또는 Codex의 스킬 디렉토리에 반영합니다.
 
 ## 동작 흐름
 
-1. `scripts/sync_skills.py`를 실행해 소스 스킬을 대상 도구의 스킬 디렉토리에 복사한다.
-2. 결과(추가/업데이트/스킵된 스킬 목록)를 사용자에게 보고한다.
-3. 새 스킬 추가나 세션 재시작이 필요한 경우를 함께 안내한다.
+1. `scripts/sync_skills.py`를 실행해 소스 스킬을 대상 도구의 스킬 디렉토리에 복사합니다.
+2. 결과(추가/업데이트/스킵된 스킬 목록)를 사용자에게 보고합니다.
+3. 새 스킬 추가나 세션 재시작이 필요한 경우를 함께 안내합니다.
 
 ## 실행 방법
 
-스크립트를 직접 실행한다:
+반드시 **Desktop Commander의 `start_process`** 를 사용해 Mac에서 직접 실행합니다.
+Bash 도구(샌드박스 환경)로 실행하면 Claude 스킬 디렉토리를 찾지 못하므로 사용할 수 없습니다.
 
 ```bash
 python3 /Users/woonyong/workspace/skills/skill-syncer/scripts/sync_skills.py --target all
 ```
 
-실행 후 출력 결과를 읽어 사용자에게 요약해서 보고한다.
+실행 후 출력 결과를 읽어 사용자에게 요약해서 보고합니다.
 
-특정 대상만 동기화하려면 `--target claude` 또는 `--target codex`를 사용한다.
+특정 대상만 동기화하려면 `--target claude` 또는 `--target codex`를 사용합니다.
 
 ## 결과 보고 형식
 
-스크립트 실행 결과를 아래 형식으로 정리해서 전달한다:
+스크립트 실행 결과를 아래 형식으로 정리해서 전달합니다:
 
 ```
 [완료] claude 동기화
@@ -48,7 +49,7 @@ python3 /Users/woonyong/workspace/skills/skill-syncer/scripts/sync_skills.py --t
 
 ## 주의사항
 
-- Claude 대상은 활성 세션의 스킬 디렉토리를 자동으로 탐색한다.
-- Codex 대상은 `~/.codex/skills`를 사용하며 없으면 자동으로 생성한다.
-- 소스 디렉토리에 `skill-syncer` 폴더 자체도 있으면 함께 동기화된다(자기 자신 포함).
-- 동기화는 단방향이다(소스 → 대상 도구). 대상 쪽 변경은 소스에 반영되지 않는다.
+- Claude 대상은 활성 세션의 스킬 디렉토리를 자동으로 탐색합니다.
+- Codex 대상은 `~/.codex/skills`를 사용하며 없으면 자동으로 생성합니다.
+- 소스 디렉토리에 `skill-syncer` 폴더 자체도 있으면 함께 동기화됩니다(자기 자신 포함).
+- 동기화는 단방향입니다(소스 → 대상 도구). 대상 쪽 변경은 소스에 반영되지 않습니다.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub Issue Manager"
+  short_description: "GitHub 이슈 댓글 링크 상태 자동 관리"
+  default_prompt: "Use $github-issue-manager to write a results-first GitHub issue comment, attach repo links, and update the issue status."

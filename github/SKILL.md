@@ -1,9 +1,9 @@
 ---
 name: github
 description: >
-  GitHub 저장소 작업을 수행한다. PR, 이슈, CI/CD, 릴리즈, 알림, README 업데이트를
-  모두 처리한다. conventions/ 디렉토리의 규칙을 읽고 적용해서 사용자가 직접 쓴 것과
-  동일한 문체와 형식으로 출력한다. AI 생성 표식, 이모지, 영문 마케팅 문체는 절대 사용하지 않는다.
+  GitHub 저장소 작업을 수행합니다. PR, 이슈, CI/CD, 릴리즈, 알림, README 업데이트를
+  모두 처리합니다. conventions/ 디렉토리의 규칙을 읽고 적용해서 사용자가 직접 쓴 것과
+  동일한 문체와 형식으로 출력합니다. AI 생성 표식, 이모지, 영문 마케팅 문체는 절대 사용하지 않습니다.
 
   트리거 예시:
   PR — "PR 만들어줘", "PR 목록 보여줘", "PR 머지해줘", "리뷰 요청받은 PR 보여줘",
@@ -18,12 +18,12 @@ description: >
 
 # GitHub 스킬
 
-GitHub 저장소의 PR, 이슈, CI/CD, 릴리즈, 알림, README를 터미널에서 관리한다.
+GitHub 저장소의 PR, 이슈, CI/CD, 릴리즈, 알림, README를 터미널에서 관리합니다.
 
 ## 스크립트 위치
 
-모든 스크립트는 `scripts/` 디렉토리에 있다.
-실행 전 `cd` 없이 절대 경로나 스크립트 기준 경로로 실행한다.
+모든 스크립트는 `scripts/` 디렉토리에 있습니다.
+실행 전 `cd` 없이 절대 경로나 스크립트 기준 경로로 실행합니다.
 
 ```
 scripts/
@@ -38,7 +38,7 @@ scripts/
 
 ## 컨벤션 규칙
 
-생성 전 반드시 아래 파일을 읽고 규칙을 적용한다.
+생성 전 반드시 아래 파일을 읽고 규칙을 적용합니다.
 
 - `conventions/style.md` — 어투, 금지 항목 (모든 작업에 공통 적용)
 - `conventions/pr.md` — PR 제목/본문 템플릿, 라벨 매핑
@@ -48,8 +48,8 @@ scripts/
 
 ## 실행 규칙
 
-- 저장소 정보는 `common.load_config()`가 자동 감지한다
-- 명시적으로 지정하려면 `--repo owner/repo` 인자를 사용한다
+- 저장소 정보는 `common.load_config()`가 자동 감지합니다
+- 명시적으로 지정하려면 `--repo owner/repo` 인자를 사용합니다
 - 출력 포맷: `[완료]` `[오류]` `[안내]` `[경고]` `[목록]`
 
 ## PR
@@ -153,13 +153,13 @@ python3 scripts/gh_readme.py update --section env|usage|features
 
 ## 설정
 
-`~/.config/skills/github.env` 파일로 기본 저장소를 설정한다.
+`~/.config/skills/github.env` 파일로 기본 저장소를 설정합니다.
 
 ```bash
 GITHUB_DEFAULT_OWNER=woonyong-kr
 GITHUB_DEFAULT_REPO=my-repo
 ```
 
-git 저장소 내에서 실행하면 remote URL에서 자동 감지한다.
+git 저장소 내에서 실행하면 remote URL에서 자동 감지합니다.
 
-레거시 경로 `~/.config/claude-skill/github.env`도 계속 읽지만 새 설정은 `~/.config/skills/github.env`를 사용한다.
+레거시 경로 `~/.config/claude-skill/github.env`도 계속 읽지만 새 설정은 `~/.config/skills/github.env`를 사용합니다.
