@@ -56,8 +56,10 @@ BREAKING CHANGE: explain the incompatible change in English
 - 한 줄로 유지
 - 마침표로 끝내지 않기
 - 행위가 아닌 변경의 결과를 서술
-- `수정`, `작업`, `변경`, `업데이트` 같은 모호한 단어 지양
-- `자식 노드 비교 순서를 바로잡아`, `타입스크립트 빌드 설정을 추가` 같은 구체적 표현 선호
+- 불필요한 조사를 생략하고 명사형으로 간결하게 종결 (예: `~추가`, `~수정`, `~개선`)
+- 구체적이지 않고 단순히 `버그 수정`, `코드 업데이트` 같은 모호한 표현 지양
+- `자식 노드 비교 순서 수정`, `타입스크립트 빌드 설정 추가` 같은 구체적 표현 선호
+
 
 ### 본문 규칙
 
@@ -73,32 +75,32 @@ BREAKING CHANGE: explain the incompatible change in English
 ### 예시
 
 ```text
-feat: DOM 렌더러 초기 구조를 추가
+feat: DOM 렌더러 초기 구조 추가
 
-fix: 자식 노드 재정렬 시 인덱스 계산 오류를 고쳐
+fix: 자식 노드 재정렬 시 인덱스 계산 오류 수정
 
-docs: README에 타입스크립트 시작 방법을 정리
+docs: README에 타입스크립트 시작 방법 정리
 
-build: TypeScript 출력 경로와 타입 선언 생성을 설정
+build: TypeScript 출력 경로 및 타입 선언 생성 설정
 
-refactor: 가상 노드 생성 흐름을 단순화
+refactor: 가상 노드 생성 흐름 단순화
 ```
 
 본문 포함 예시:
 
 ```text
-fix: 자식 노드 재정렬 시 인덱스 계산 오류를 고쳐
+fix: 자식 노드 재정렬 시 인덱스 계산 오류 수정
 
-키 비교 후 재배치 순서를 다시 계산하도록 바꿔
-중첩 목록 갱신에서 잘못된 DOM 이동이 발생하지 않게 한다
+키 비교 후 재배치 순서를 다시 계산하도록 변경.
+중첩 목록 갱신에서 잘못된 DOM 이동이 발생하지 않도록 개선.
 ```
 
 Breaking Change 예시:
 
 ```text
-feat: 렌더러 초기화 API를 단순화
+feat: 렌더러 초기화 API 단순화
 
-기본 사용 흐름을 하나로 맞추기 위해 진입 함수를 통합한다
+기본 사용 흐름을 하나로 맞추기 위해 진입 함수 통합.
 
 BREAKING CHANGE: replace createRenderer() with createRoot()
 ```
