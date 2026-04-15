@@ -1,6 +1,6 @@
 ---
 name: three-persona-multi-agent-review
-description: Spawn three parallel subagents to evaluate the same code, answer, patch, design, or explanation through distinct personas: (1) a senior programmer with 20+ years of experience acting as a coach, (2) a junior programmer with 5 years or less acting as a supporter, and (3) a beginner C student with 1 year or less of experience. Use when the user explicitly asks for multi-agent work, persona-based review, parallel evaluation, or invokes this skill directly to compare expert, practical, and beginner reactions to the same artifact. All persona outputs and the final synthesis must be written in Korean.
+description: "Spawn three parallel subagents to evaluate the same code, answer, patch, design, or explanation through distinct personas: (1) a senior programmer with 20+ years of experience acting as a coach, (2) a junior programmer with 5 years or less acting as a supporter, and (3) a beginner C student with 1 year or less of experience. Use when the user explicitly asks for multi-agent work, persona-based review, parallel evaluation, or invokes this skill directly to compare expert, practical, and beginner reactions to the same artifact. All persona outputs and the final synthesis must be written in Korean."
 ---
 
 # Three Persona Multi Agent Review
